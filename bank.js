@@ -42,7 +42,7 @@ fs.readFile("bank.txt", "utf8", function(error, data){
                 }
 
                 function deposit(){
-                    fs.appendFile("bank.txt", ","+value, function(error){
+                    fs.appendFile("bank.txt", ", "+ value, function(error){
                         if (error){
                             return console.log("error")
                         }
@@ -59,6 +59,34 @@ fs.readFile("bank.txt", "utf8", function(error, data){
                     })
 
                 }
+                function lotto(){
+        
+                    fs.appendFile("bank.txt", ', -.25', function(error){
+                        if (error){
+                            return console.log("error")
+                        }
+                    })
+                        var chance=Math.floor((Math.random()*10)+1);
+                        if (chance === 1){
+                        
+                            fs.appendFile("bank.txt", ", 2", function(error){
+                                if(error){
+                                    return console.log("error")
+                                }
+                            })
+
+                            console.log("Congrats you won the lottery!");
+
+                            // Otherwise we will tell them they lost 25 cents.
+                        }
+                           
+                        else {
+                            console.log("Sorry. You just lost 25 cents. Maybe you should get a job instead.");
+                          }
+                        
+                }
+
+
         }
 
 })
